@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "brandName": "PRAN",
+        "brandLogo": "https://i.ibb.co/Z1kzh7M/pran-logo-91-A5-C26-A39-seeklogo-com.png",
+        "brandDesc": "PRAN is a distinguished and trusted name in the world of agro-based food and beverage products. With a rich heritage and a commitment to quality, PRAN has been a pioneer in transforming the agricultural landscape of Bangladesh and beyond."
+    },
+    {
+        "id": 2,
+        "brandName": "AG Agro food",
+        "brandLogo": "https://i.ibb.co/F0204xX/agro-removebg-preview.png",
+        "brandDesc": "At AG Agro Food, we're more than a brand; we're a commitment to nourishment, sustainability, and a brighter, greener future for all. Taste the freshness, feel the difference, and join us on our journey towards a more sustainable and delicious world."
+    },
+    {
+        "id": 3,
+        "brandName": "Akij Bakers",
+        "brandLogo": "https://i.ibb.co/GdM2pV3/logo.png",
+        "brandDesc": "With a strong emphasis on customer satisfaction, we have earned the trust of discerning consumers. Our passion for baking drives us to consistently create products that not only taste great but also meet the highest food safety and hygiene standards."
+    },
+    {
+        "id": 4,
+        "brandName": "Cocola",
+        "brandLogo": "https://i.ibb.co/2vBJ4xP/logo-removebg-preview.png",
+        "brandDesc": "Cocola's product offerings encompass a wide variety of snacks, from savory chips and nuts to sweet chocolates and candies. Their beverage line features refreshing drinks and flavorful choices that cater to different tastes and preferences."
+    },
+    {
+        "id": 5,
+        "brandName": "Khaas Food",
+        "brandLogo": "https://i.ibb.co/tDb8074/b0dd0059-4423-4178-93bb-6a767962cfa6.png",
+        "brandDesc": "What distinguishes Khaas Food is its unwavering focus on purity, authenticity, and ethical sourcing. They prioritize the well-being of both consumers and producers, promoting sustainable and responsible practices throughout their supply chain."
+    },
+    {
+        "id": 6,
+        "brandName": "Golden Harvest",
+        "brandLogo": "https://i.ibb.co/ZJXy0hd/Golden-Harvest-removebg-preview.png",
+        "brandDesc": "Golden Harvest is a distinguished name in the world of agriculture and food production. With a rich history and a reputation for excellence, Golden Harvest stands as a symbol of quality, innovation, and sustainability."
+    }
+]
