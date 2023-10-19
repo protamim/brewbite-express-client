@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import pranLogo from "../assets/images/pran_logo.png";
+import { Link } from "react-router-dom";
 
 const Brands = () => {
   const [card, setCard] = useState([]);
@@ -11,6 +11,8 @@ const Brands = () => {
         setCard(data);
       });
   }, []);
+
+  
 
   console.log(card);
   return (
@@ -42,9 +44,11 @@ const Brands = () => {
                         </h4>
                         <p>{brand.brandDesc.slice(0, 200)}</p>
                         <div>
-                          <button className="bg-lime-400 px-6 py-1">
-                            View All Products
-                          </button>
+                          <Link to={`/products/${brand.brandName}`}>
+                            <button className="bg-lime-400 px-6 py-1">
+                              View All Products
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>

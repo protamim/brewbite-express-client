@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
   const [selectedValues, setSelectedValues] = useState({});
@@ -11,7 +12,7 @@ const AddProduct = () => {
     console.dir(event.target);
     setSelectedValues({ ...selectedValues, [name]: value });
   };
-  console.log(selectedValues);
+  // console.log(selectedValues);
 
   const handleAddProduct = (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ const AddProduct = () => {
     const prodPrice = form.prodPrice.value;
     const prodRating = form.prodRating.value;
     const shortDesc = form.desc.value;
+    const { brand, type } = selectedValues;
 
     const prodInfo = {
       prodName,
@@ -28,9 +30,30 @@ const AddProduct = () => {
       prodPrice,
       prodRating,
       shortDesc,
-      selectedValues,
+      brand,
+      type
     };
     console.log(prodInfo);
+    
+    fetch('http://localhost:5000/products', {
+      method: 'POST', 
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(prodInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.insertedId){
+        Swal.fire({
+          text: 'Added the product successfully!',
+          icon: 'success'
+        })
+      }
+      console.log(data);
+    })
+
+
 
     // reset form after submision
     form.reset();
