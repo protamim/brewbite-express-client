@@ -20,7 +20,7 @@ console.log(products);
                             <h2 className="text-3xl">{prodName}</h2>
                             <p>{shortDesc}</p>
                             <div>
-                                <button className="bg-slate-700 px-5 py-1">Buy Now</button>
+                                <button className="bg-slate-700 px-5 py-1">Add to cart</button>
                             </div>
                         </div>
                     </div>
