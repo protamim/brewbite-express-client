@@ -41,8 +41,6 @@ const ProdDetails = () => {
         })
     }
 
-console.log(products);
-
     return (
         <>
             <section className="mt-20">

@@ -3,7 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import PropTypes from 'prop-types';
 
 const BrandProduct = ({ product }) => {
-  const { brand, prodImage, prodName, type, prodPrice, prodRating } = product;
+  const {_id, brand, prodImage, prodName, type, prodPrice, prodRating } = product;
 //  console.log(product);
   return (
     <>
@@ -34,9 +34,11 @@ const BrandProduct = ({ product }) => {
               Details
             </button>
             </Link>
+            <Link to={`/update/${_id}`}>
             <button className="bg-slate-600 hover:bg-slate-200 transition-all hover:text-black px-4 py-1">
               Update
             </button>
+            </Link>
           </div>
         </div>
       </div>
