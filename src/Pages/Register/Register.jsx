@@ -53,10 +53,13 @@ const Register = () => {
     createAccount(email, password)
       .then((res) => {
         console.log(res);
+        setRegSuccess("Registered successfully!");
+        setRegErr('')
       })
       .catch((err) => {
         console.log(err);
-        setRegSuccess("Registered successfully!");
+        setRegErr(err.message)
+        setRegSuccess('');
       });
   };
 
@@ -79,6 +82,7 @@ const Register = () => {
                       className="border-lime-400 bg-transparent outline-none border py-1 px-2"
                       type="text"
                       name="name"
+                      required
                       placeholder="Your Name"
                     />
                   </div>
@@ -90,6 +94,7 @@ const Register = () => {
                       className="border-lime-400 bg-transparent outline-none border py-1 px-2"
                       type="text"
                       name="photo"
+                      required
                       placeholder="Photo URL"
                     />
                   </div>
@@ -101,6 +106,7 @@ const Register = () => {
                       className="border-lime-400 bg-transparent outline-none border py-1 px-2"
                       type="email"
                       name="email"
+                      required
                       placeholder="Email address"
                     />
                   </div>
@@ -112,6 +118,7 @@ const Register = () => {
                       className="border-lime-400 bg-transparent outline-none border py-1 px-2"
                       type={showPass ? 'text': 'password'}
                       name="password"
+                      required
                       placeholder="Password"
                     />
                     {/* password show hide */}
