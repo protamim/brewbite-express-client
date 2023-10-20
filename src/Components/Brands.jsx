@@ -14,7 +14,7 @@ const Brands = () => {
 
   
 
-  console.log(card);
+ 
   return (
     <>
       <section className="pt-12 bg-lime-200">
