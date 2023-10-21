@@ -31,29 +31,27 @@ const AddProduct = () => {
       prodRating,
       shortDesc,
       brand,
-      type
+      type,
     };
     console.log(prodInfo);
-    
-    fetch('http://localhost:5000/products', {
-      method: 'POST', 
+
+    fetch("http://localhost:5000/products", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json'
+        "content-type": "application/json",
       },
-      body: JSON.stringify(prodInfo)
+      body: JSON.stringify(prodInfo),
     })
-    .then(res => res.json())
-    .then(data => {
-      if(data.insertedId){
-        Swal.fire({
-          text: 'Added the product successfully!',
-          icon: 'success'
-        })
-      }
-      console.log(data);
-    })
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            text: "Added the product successfully!",
+            icon: "success",
+          });
+        }
+        console.log(data);
+      });
 
     // reset form after submision
     form.reset();
@@ -71,7 +69,7 @@ const AddProduct = () => {
         </div>
         {/* Breadcam end */}
         <div className="bg-lime-300 text-black px-12 py-10 space-y-12">
-          <div className="text-center w-3/4 mx-auto space-y-4">
+          <div className="text-center w-full md:w-3/4 mx-auto space-y-4">
             <h2 className="text-3xl">Add New Product</h2>
             <p className="text-xl">
               It is a long established fact that a reader will be distraceted by
@@ -160,7 +158,7 @@ const AddProduct = () => {
                     placeholder="Product rating"
                   />
                 </div>
-                <div className="flex flex-col gap-2 text-xl col-span-2">
+                <div className="flex flex-col gap-2 text-xl md:col-span-2">
                   <span>Short Desciption</span>
                   <textarea
                     className="h-28 textarea textarea-secondary bg-transparent resize-none"

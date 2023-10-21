@@ -45,7 +45,7 @@ const ProdDetails = () => {
         <>
             <section className="mt-20">
                 <div className="container mx-auto px-5">
-                    <div className="flex gap-14 items-center">
+                    <div className="flex flex-col md:flex-row gap-14 items-center">
                         <div className="flex-1">
                             <img src={prodImage} alt={prodName} />
                         </div>

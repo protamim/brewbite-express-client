@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const MyCart = () => {
   const addedProducts = useLoaderData();
-  const [cartProducts, setCartProducts] = useState(addedProducts)
+  const [cartProducts, setCartProducts] = useState(addedProducts);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -23,9 +23,9 @@ const MyCart = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
-              const deleted = cartProducts.filter(prod => prod._id !== id)
-              setCartProducts(deleted);
+            Swal.fire("Deleted!", "Your file has been deleted.", "success");
+            const deleted = cartProducts.filter((prod) => prod._id !== id);
+            setCartProducts(deleted);
             console.log(data);
           });
       }
@@ -34,7 +34,7 @@ const MyCart = () => {
 
   return (
     <>
-      <section>
+      <section className="mt-12">
         <div className="container mx-auto px-5">
           <div className="max-w-3xl mx-auto bg-indigo-950 px-8 py-4 space-y-6">
             {cartProducts.map((product) => (
