@@ -34,7 +34,6 @@ const MyCart = () => {
 
   return (
     <>
-      <h2>My Cart{addedProducts.length}</h2>
       <section>
         <div className="container mx-auto px-5">
           <div className="max-w-3xl mx-auto bg-indigo-950 px-8 py-4 space-y-6">

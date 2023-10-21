@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from 'react-icons/fc'
@@ -11,6 +11,9 @@ const Login = () => {
   const [signInErr, setSignInErr] = useState("");
   const { logIn, socialSignIn } = useContext(AuthContext);
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
 
   const hideShow = () => {
     setShowPass(!showPass);
@@ -21,6 +24,7 @@ const Login = () => {
     .then(() => {
       setSignInSuccess("Signed in successfully!");
       setSignInErr('');
+      navigate(location?.state ? location.state : '/');
     })
     .catch((err) => {
       setSignInErr(err.message);
@@ -39,6 +43,7 @@ const Login = () => {
       .then(() => {
         setSignInSuccess("Signed in successfully!");
         setSignInErr('');
+        navigate(location?.state ? location.state : '/');
       })
       .catch(() => {
         setSignInErr("Invalid login credentials!");

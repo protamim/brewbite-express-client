@@ -4,11 +4,11 @@ import "./nav.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 
-const Navbar = () => {
 
+const Navbar = () => {
 const {user, logOut} = useContext(AuthContext);
 
-console.log(user);
+
 
 const handleLogOut = ()=> {
   logOut().then(res => {

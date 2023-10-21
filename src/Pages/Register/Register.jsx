@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
+
 const Register = () => {
-  const { createAccount } = useContext(AuthContext);
+  const { createAccount, userProfile } = useContext(AuthContext);
   const [regErr, setRegErr] = useState("");
   const [regSuccess, setRegSuccess] = useState("");
   const [showPass, setShowPass] = useState(false);
@@ -18,6 +19,20 @@ const Register = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    console.log('from register', name, photo);
+
+    // Update a user's profile
+    userProfile({
+      displayName: 'Tamim',
+      photoURL: 'https://i.ibb.co/FW6bJ4r/16-1.png'
+    }).then(()=> {
+      console.log('Profile updated');
+    }).catch(err => {
+      console.error(err);
+    })
+    
 
     const isNonWhiteSpace = /^\S*$/;
     if (!isNonWhiteSpace.test(password)) {
@@ -51,8 +66,8 @@ const Register = () => {
 
     // Firebase
     createAccount(email, password)
-      .then((res) => {
-        console.log(res);
+      .then((userCredential) => {
+        console.log(userCredential.user);
         setRegSuccess("Registered successfully!");
         setRegErr('')
       })
