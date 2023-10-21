@@ -3,25 +3,24 @@ import brewBiteLogo from "../../assets/images/brewBite_logo.png";
 import "./nav.css";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
-const {user, logOut} = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
-
-
-const handleLogOut = ()=> {
-  logOut().then(res => {
-    console.log(res);
-  }).catch(err => {
-    console.log(err.message);
-  })
-
-}
+  const handleLogOut = () => {
+    logOut()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <>
-      <nav className="bg-slate-700 text-slate-300">
+      <nav className="bg-slate-700 hidden md:block text-slate-300">
         <div className="container mx-auto px-5">
           <div>
             <div className="h-24 flex gap-4 items-center justify-between">
@@ -46,26 +45,32 @@ const handleLogOut = ()=> {
                 </ul>
               </div>
               <div>
-                {
-                  user ? 
+                {user ? (
                   <div className="flex gap-4 items-center">
                     <div className="flex justify-center items-center flex-col">
-                    <img className="w-10 rounded-full" src={user?.photoURL} alt={user?.displayName} />
-                    <h5>{user?.displayName}</h5>
+                      <img
+                        className="w-10 rounded-full"
+                        src={user?.photoURL}
+                        alt={user?.displayName}
+                      />
+                      <h5>{user?.displayName}</h5>
                     </div>
-                    <button onClick={handleLogOut} className="text-xl">Log Out</button>
+                    <button onClick={handleLogOut} className="text-xl">
+                      Log Out
+                    </button>
                   </div>
-                  :
-                <NavLink to={'/login'}>
-                  <button>Login</button>
-                </NavLink>
-
-                }
+                ) : (
+                  <NavLink to={"/login"}>
+                    <button>Login</button>
+                  </NavLink>
+                )}
               </div>
             </div>
           </div>
         </div>
       </nav>
+      {/* Navbar for mobile */}
+      <MobileNav />
     </>
   );
 };
