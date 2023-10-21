@@ -15,6 +15,7 @@ const BrandProducts = () => {
 
   return (
     <>
+    {/* Slider */}
       <section className="mb-12">
         <div>
           <div>
