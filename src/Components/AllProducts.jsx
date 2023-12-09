@@ -8,7 +8,7 @@ const AllProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/products")
+    fetch("https://brew-bite-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

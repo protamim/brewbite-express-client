@@ -39,7 +39,7 @@ const UpdateProd = () => {
       type,
     };
 
-    fetch(`https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/productsId/${id}`, {
+    fetch(`https://brew-bite-server.vercel.app/productsId/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

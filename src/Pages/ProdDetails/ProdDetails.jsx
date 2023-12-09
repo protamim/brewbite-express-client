@@ -23,7 +23,7 @@ const ProdDetails = () => {
             prodName,
             shortDesc
         }
-        fetch(`https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/user/cart`, {
+        fetch(`https://brew-bite-server.vercel.app/user/cart`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

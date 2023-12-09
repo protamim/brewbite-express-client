@@ -8,6 +8,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({children}) => {
 const [user, setUser] = useState(null);
 const [loading, setLoading] = useState(true);
+const [relode, setReload] = useState(null);
 
 // register user
 const createAccount = (email, password)=> {
@@ -36,7 +37,7 @@ useEffect(()=> {
     return ()=> {
         unSubscribe();
     }
-},[])
+},[relode])
 
 // Update user profile info
 const userProfile = (userInfo)=> {
@@ -53,6 +54,7 @@ const logOut = ()=> {
 const authInfo = {
     user,
     loading,
+    setReload,
     createAccount,
     userProfile,
     logIn,
@@ -60,6 +62,7 @@ const authInfo = {
     logOut
 }
 
+console.log(user)
 
 return (
         <AuthContext.Provider value={authInfo}>

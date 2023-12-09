@@ -35,7 +35,7 @@ const AddProduct = () => {
     };
     console.log(prodInfo);
 
-    fetch("https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/products", {
+    fetch("https://brew-bite-server.vercel.app/products", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
-
 const Register = () => {
-  const { createAccount, userProfile } = useContext(AuthContext);
+  const { createAccount, setReload, userProfile } = useContext(AuthContext);
   const [regErr, setRegErr] = useState("");
   const [regSuccess, setRegSuccess] = useState("");
   const [showPass, setShowPass] = useState(false);
 
-  const hideShow = ()=> {
+  const hideShow = () => {
     setShowPass(!showPass);
-  }
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -21,18 +20,7 @@ const Register = () => {
     const password = form.password.value;
     const name = form.name.value;
     const photo = form.photo.value;
-    console.log('from register', name, photo);
-
-    // Update a user's profile
-    userProfile({
-      displayName: 'Tamim',
-      photoURL: 'https://i.ibb.co/FW6bJ4r/16-1.png'
-    }).then(()=> {
-      console.log('Profile updated');
-    }).catch(err => {
-      console.error(err);
-    })
-    
+    console.log("from register", name, photo);
 
     const isNonWhiteSpace = /^\S*$/;
     if (!isNonWhiteSpace.test(password)) {
@@ -67,14 +55,26 @@ const Register = () => {
     // Firebase
     createAccount(email, password)
       .then((userCredential) => {
+        // Update a user's profile
+        userProfile({
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            setReload(true);
+            console.log("Profile updated");
+          })
+          .catch((err) => {
+            console.error(err);
+          });
         console.log(userCredential.user);
         setRegSuccess("Registered successfully!");
-        setRegErr('')
+        setRegErr("");
       })
       .catch((err) => {
         console.log(err);
-        setRegErr(err.message)
-        setRegSuccess('');
+        setRegErr(err.message);
+        setRegSuccess("");
       });
   };
 
@@ -131,22 +131,27 @@ const Register = () => {
                     </label>
                     <input
                       className="border-lime-400 bg-transparent outline-none border py-1 px-2"
-                      type={showPass ? 'text': 'password'}
+                      type={showPass ? "text" : "password"}
                       name="password"
                       required
                       placeholder="Password"
                     />
                     {/* password show hide */}
-                    {
-                      showPass ? 
-                      <span onClick={hideShow} className="absolute top-[63%] left-[94%] cursor-pointer">
-                      <FaRegEyeSlash />
-                    </span>
-                    :
-                    <span onClick={hideShow} className="absolute top-[63%] left-[94%] cursor-pointer">
-                      <FaRegEye />
-                    </span>
-                    }
+                    {showPass ? (
+                      <span
+                        onClick={hideShow}
+                        className="absolute top-[63%] left-[94%] cursor-pointer"
+                      >
+                        <FaRegEyeSlash />
+                      </span>
+                    ) : (
+                      <span
+                        onClick={hideShow}
+                        className="absolute top-[63%] left-[94%] cursor-pointer"
+                      >
+                        <FaRegEye />
+                      </span>
+                    )}
                   </div>
                   {/* Validation message for the client */}
                   {regErr && <p className="text-sm text-red-500">{regErr}</p>}

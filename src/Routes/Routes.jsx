@@ -29,7 +29,7 @@ const Routes = createBrowserRouter([
             {
                 path: 'cart',
                 element: <PrivateRoute> <MyCart /> </PrivateRoute>,
-                loader: ()=> fetch('https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/user/cart')
+                loader: ()=> fetch('https://brew-bite-server.vercel.app/user/cart')
             },
             {
                 path: 'login',
@@ -42,17 +42,17 @@ const Routes = createBrowserRouter([
             {
                 path: '/products/:brand',
                 element: <BrandProducts />,
-                loader: ({params})=> fetch(`https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/products/${params.brand}`)
+                loader: ({params})=> fetch(`https://brew-bite-server.vercel.app/products/${params.brand}`)
             },
             {
                 path: '/products/:brand/:prodName',
                 element: <PrivateRoute> <ProdDetails /> </PrivateRoute>,
-                loader: ({params})=> fetch(`https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/products/${params.brand}/${params.prodName}`)
+                loader: ({params})=> fetch(`https://brew-bite-server.vercel.app/products/${params.brand}/${params.prodName}`)
             },
             {
                 path: '/update/:id',
                 element: <PrivateRoute> <UpdateProd /> </PrivateRoute>,
-                loader: ({params})=> fetch(`https://brew-bite-server-3ck7ufhu2-protamims-projects.vercel.app/productsId/${params.id}`)
+                loader: ({params})=> fetch(`https://brew-bite-server.vercel.app/productsId/${params.id}`)
             }
         ]
     }
